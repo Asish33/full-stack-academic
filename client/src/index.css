@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-900 text-slate-100 font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-800;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer components {
+  /* Glass card */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-semibold px-5 py-2.5 rounded-xl
+           transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-primary-500/20
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  /* Secondary / outline button */
+  .btn-outline {
+    @apply border border-white/20 hover:border-primary-400 text-slate-300 hover:text-white font-medium
+           px-5 py-2.5 rounded-xl transition-all duration-200 hover:bg-white/5 active:scale-95;
+  }
+
+  /* Danger button */
+  .btn-danger {
+    @apply bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 font-medium
+           px-4 py-2 rounded-xl border border-red-500/30 transition-all duration-200;
+  }
+
+  /* Input field */
+  .input-field {
+    @apply w-full bg-surface-800 border border-white/10 rounded-xl px-4 py-3 text-slate-100
+           placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50
+           focus:border-primary-500 transition-all duration-200;
+  }
+
+  /* Select field */
+  .select-field {
+    @apply w-full bg-surface-800 border border-white/10 rounded-xl px-4 py-3 text-slate-100
+           focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500
+           transition-all duration-200 cursor-pointer;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-semester {
+    @apply badge bg-amber-500/20 text-amber-300 border border-amber-500/30;
+  }
+
+  .badge-branch {
+    @apply badge bg-primary-500/20 text-primary-300 border border-primary-500/30;
+  }
+
+  .badge-pdf {
+    @apply badge bg-rose-500/20 text-rose-300 border border-rose-500/30;
+  }
+
+  .badge-image {
+    @apply badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30;
+  }
+
+  /* Note card */
+  .note-card {
+    @apply glass p-5 transition-all duration-300 hover:border-primary-500/40
+           hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-1 cursor-pointer;
+  }
+
+  /* Page wrapper */
+  .page-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply text-2xl font-bold text-slate-100 mb-6;
+  }
+
+  /* Vote button */
+  .vote-btn {
+    @apply flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium
+           transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+
+  .vote-btn-up {
+    @apply vote-btn text-slate-400 hover:text-emerald-400 hover:bg-emerald-500/10;
+  }
+
+  .vote-btn-up.active {
+    @apply text-emerald-400 bg-emerald-500/20 border border-emerald-500/30;
+  }
+
+  .vote-btn-down {
+    @apply vote-btn text-slate-400 hover:text-red-400 hover:bg-red-500/10;
+  }
+
+  .vote-btn-down.active {
+    @apply text-red-400 bg-red-500/20 border border-red-500/30;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-400 to-violet-400 bg-clip-text text-transparent;
+  }
+
+  .glow {
+    box-shadow: 0 0 30px theme('colors.primary.500' / 20%);
+  }
+}
