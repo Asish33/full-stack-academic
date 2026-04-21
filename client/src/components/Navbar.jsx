@@ -18,26 +18,23 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-surface-900/80 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 border-b border-outline-variant/20 bg-background/80 backdrop-blur-md shadow-[0_0_40px_-10px_rgba(0,230,118,0.1)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-violet-600 flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform duration-200">
-              <FiBookOpen className="text-white text-lg" />
-            </div>
-            <div>
-              <span className="text-gradient font-bold text-lg leading-tight block">NoteShare</span>
-              <span className="text-slate-500 text-[10px] -mt-0.5 block">Exchange Portal</span>
+          <Link to="/" className="flex items-center gap-2 group">
+            <span className="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform duration-500" style={{ fontVariationSettings: "'FILL' 1" }}>sync</span>
+            <div className="flex items-baseline gap-2">
+              <span className="font-headline font-bold text-2xl tracking-tighter text-on-surface leading-none">SyncSpace</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-2">
             <Link
-              to="/"
+              to="/dashboard"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive('/') ? 'text-primary-400 bg-primary-500/10' : 'text-slate-400 hover:text-slate-100 hover:bg-white/5'
+                isActive('/dashboard') ? 'text-primary bg-primary/10' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'
               }`}
             >
               Browse Notes
@@ -48,19 +45,19 @@ const Navbar = () => {
                 <Link
                   to="/upload"
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    isActive('/upload') ? 'text-primary-400 bg-primary-500/10' : 'text-slate-400 hover:text-slate-100 hover:bg-white/5'
+                    isActive('/upload') ? 'text-primary bg-primary/10' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest'
                   }`}
                 >
                   Upload Notes
                 </Link>
-                <div className="flex items-center gap-2 ml-2 pl-2 border-l border-white/10">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-violet-600 flex items-center justify-center text-white text-sm font-bold">
+                <div className="flex items-center gap-2 ml-2 pl-2 border-l border-outline-variant/30">
+                  <div className="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary text-sm font-bold shadow-[0_0_10px_rgba(0,230,118,0.3)]">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
-                  <span className="text-slate-300 text-sm">{user.name.split(' ')[0]}</span>
+                  <span className="text-on-surface text-sm font-body font-medium">{user.name.split(' ')[0]}</span>
                   <button
                     onClick={handleLogout}
-                    className="ml-1 p-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200"
+                    className="ml-1 p-2 rounded-lg text-on-surface-variant hover:text-error hover:bg-error/10 transition-all duration-200"
                     title="Logout"
                   >
                     <FiLogOut />
@@ -69,11 +66,11 @@ const Navbar = () => {
               </>
             ) : (
               <div className="flex items-center gap-2 ml-2">
-                <Link to="/login" className="btn-outline text-sm py-2 px-4 flex items-center gap-1.5">
-                  <FiLogIn className="text-sm" /> Login
+                <Link to="/login" className="px-4 py-2 rounded-full border border-outline-variant hover:border-primary text-sm text-on-surface-variant hover:text-on-surface transition-colors font-headline">
+                  Login
                 </Link>
-                <Link to="/register" className="btn-primary text-sm py-2 px-4 flex items-center gap-1.5">
-                  <FiUserPlus className="text-sm" /> Sign Up
+                <Link to="/register" className="px-5 py-2 rounded-full bg-primary text-on-primary text-sm font-bold font-headline shadow-[0_0_15px_rgba(0,230,118,0.2)] hover:scale-105 active:scale-95 transition-all">
+                  Sign Up
                 </Link>
               </div>
             )}
@@ -81,7 +78,7 @@ const Navbar = () => {
 
           {/* Mobile menu toggle */}
           <button
-            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all"
+            className="md:hidden p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
@@ -91,25 +88,25 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-surface-900/95 backdrop-blur-lg animate-fade-in">
-          <div className="px-4 py-4 space-y-2">
-            <Link to="/" onClick={() => setMenuOpen(false)} className="block px-4 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+        <div className="md:hidden border-t border-outline-variant/20 bg-background/95 backdrop-blur-xl animate-fade-in">
+          <div className="px-4 py-4 space-y-2 font-body">
+            <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block px-4 py-2.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all">
               Browse Notes
             </Link>
             {user ? (
               <>
-                <Link to="/upload" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                <Link to="/upload" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all">
                   <FiUpload /> Upload Notes
                 </Link>
-                <div className="px-4 py-2 text-slate-500 text-sm">Signed in as <span className="text-slate-300">{user.name}</span></div>
-                <button onClick={handleLogout} className="flex items-center gap-2 w-full px-4 py-2.5 rounded-xl text-red-400 hover:bg-red-500/10 transition-all">
+                <div className="px-4 py-2 text-on-surface-variant/60 text-sm">Signed in as <span className="text-on-surface font-bold">{user.name}</span></div>
+                <button onClick={handleLogout} className="flex items-center gap-2 w-full px-4 py-2.5 rounded-xl text-error hover:bg-error/10 transition-all">
                   <FiLogOut /> Logout
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" onClick={() => setMenuOpen(false)} className="block px-4 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-white/5">Login</Link>
-                <Link to="/register" onClick={() => setMenuOpen(false)} className="block px-4 py-2.5 rounded-xl bg-primary-500 text-white text-center font-medium">Sign Up</Link>
+                <Link to="/login" onClick={() => setMenuOpen(false)} className="block px-4 py-2.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all">Login</Link>
+                <Link to="/register" onClick={() => setMenuOpen(false)} className="block px-4 py-2.5 rounded-xl bg-primary text-on-primary text-center font-bold font-headline mt-2 shadow-[0_0_15px_rgba(0,230,118,0.2)]">Sign Up</Link>
               </>
             )}
           </div>

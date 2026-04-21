@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -22,10 +22,10 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-surface-800;
+    @apply bg-surface-container;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-surface-600 rounded-full;
+    @apply bg-surface-container-highest rounded-full;
   }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-500;
@@ -35,20 +35,20 @@
 @layer components {
   /* Glass card */
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    @apply bg-surface-container-low/50 backdrop-blur-md border border-outline-variant/10 rounded-2xl;
   }
 
   /* Primary button */
   .btn-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white font-semibold px-5 py-2.5 rounded-xl
-           transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-primary-500/20
+    @apply bg-primary hover:bg-primary-container text-on-primary font-bold font-headline px-5 py-2.5 rounded-full
+           transition-all duration-200 hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,230,118,0.2)]
            disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
   }
 
   /* Secondary / outline button */
   .btn-outline {
-    @apply border border-white/20 hover:border-primary-400 text-slate-300 hover:text-white font-medium
-           px-5 py-2.5 rounded-xl transition-all duration-200 hover:bg-white/5 active:scale-95;
+    @apply border border-outline-variant hover:border-primary text-on-surface-variant hover:text-on-surface font-headline font-bold
+           px-5 py-2.5 rounded-full transition-all duration-200 hover:bg-surface-container-highest active:scale-95;
   }
 
   /* Danger button */
@@ -59,15 +59,15 @@
 
   /* Input field */
   .input-field {
-    @apply w-full bg-surface-800 border border-white/10 rounded-xl px-4 py-3 text-slate-100
-           placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50
-           focus:border-primary-500 transition-all duration-200;
+    @apply w-full bg-surface-container-highest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface font-body
+           placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/50
+           focus:border-primary transition-all duration-200;
   }
 
   /* Select field */
   .select-field {
-    @apply w-full bg-surface-800 border border-white/10 rounded-xl px-4 py-3 text-slate-100
-           focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500
+    @apply w-full bg-surface-container-highest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface font-body
+           focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary
            transition-all duration-200 cursor-pointer;
   }
 
@@ -77,11 +77,11 @@
   }
 
   .badge-semester {
-    @apply badge bg-amber-500/20 text-amber-300 border border-amber-500/30;
+    @apply badge bg-violet-500/20 text-violet-300 border border-violet-500/30;
   }
 
   .badge-branch {
-    @apply badge bg-primary-500/20 text-primary-300 border border-primary-500/30;
+    @apply badge bg-primary/20 text-primary border border-primary/30;
   }
 
   .badge-pdf {
@@ -94,8 +94,8 @@
 
   /* Note card */
   .note-card {
-    @apply glass p-5 transition-all duration-300 hover:border-primary-500/40
-           hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-1 cursor-pointer;
+    @apply glass p-5 transition-transform duration-300 hover:border-outline-variant/30
+           hover:bg-surface-container-low hover:-translate-y-1 cursor-pointer;
   }
 
   /* Page wrapper */
@@ -133,10 +133,10 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-400 to-violet-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent;
   }
 
   .glow {
-    box-shadow: 0 0 30px theme('colors.primary.500' / 20%);
+    box-shadow: 0 0 30px theme('colors.primary.DEFAULT' / 20%);
   }
 }

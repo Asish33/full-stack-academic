@@ -38,8 +38,8 @@ const NoteCard = ({ note, onVoteUpdate }) => {
       {/* Header */}
       <div className="flex items-start justify-between gap-3 mb-3">
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-slate-100 text-sm leading-snug truncate">{localNote.title}</h3>
-          <p className="text-slate-400 text-xs mt-0.5 truncate">{localNote.subject}</p>
+          <h3 className="font-headline font-bold text-on-surface text-sm leading-snug truncate">{localNote.title}</h3>
+          <p className="text-on-surface-variant text-xs mt-0.5 truncate font-body">{localNote.subject}</p>
         </div>
         <span className={localNote.fileType === 'pdf' ? 'badge-pdf flex-shrink-0' : 'badge-image flex-shrink-0'}>
           {localNote.fileType === 'pdf' ? <FiFileText size={10} /> : <FiImage size={10} />}
@@ -52,15 +52,15 @@ const NoteCard = ({ note, onVoteUpdate }) => {
         <span className="badge-semester">Sem {localNote.semester}</span>
         <span className="badge-branch">{localNote.branch}</span>
         {localNote.subjectCode && (
-          <span className="badge bg-slate-700/60 text-slate-400 border border-slate-600/40">
+          <span className="badge bg-surface-container-high text-on-surface-variant border border-outline-variant/20">
             {localNote.subjectCode}
           </span>
         )}
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between pt-3 border-t border-white/5">
-        <div className="flex items-center gap-1 text-slate-500 text-xs">
+      <div className="flex items-center justify-between pt-3 border-t border-outline-variant/10">
+        <div className="flex items-center gap-1 text-on-surface-variant/70 text-[10px] font-label uppercase tracking-wider">
           <FiUser size={11} />
           <span className="truncate max-w-[80px]">{localNote.uploadedBy?.name || 'Unknown'}</span>
           <span className="mx-1">·</span>
@@ -78,7 +78,7 @@ const NoteCard = ({ note, onVoteUpdate }) => {
             <FiThumbsUp size={13} />
             <span>{localNote.upvotes}</span>
           </button>
-          <span className={`text-xs font-bold px-1 ${score > 0 ? 'text-emerald-400' : score < 0 ? 'text-red-400' : 'text-slate-500'}`}>
+          <span className={`text-xs font-bold px-1 ${score > 0 ? 'text-primary' : score < 0 ? 'text-error' : 'text-on-surface-variant/50'}`}>
             {score > 0 ? `+${score}` : score}
           </span>
           <button

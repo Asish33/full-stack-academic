@@ -9,12 +9,12 @@ const NoteFilter = ({ filters, onChange, onReset }) => {
   return (
     <div className="glass p-4">
       <div className="flex items-center gap-2 mb-4">
-        <FiFilter className="text-primary-400" />
-        <span className="text-slate-300 font-semibold text-sm">Filter Notes</span>
+        <FiFilter className="text-primary" />
+        <span className="text-on-surface font-headline font-bold text-sm">Filter Notes</span>
         {hasFilters && (
           <button
             onClick={onReset}
-            className="ml-auto flex items-center gap-1 text-xs text-slate-500 hover:text-red-400 transition-colors"
+            className="ml-auto flex items-center gap-1 text-xs text-on-surface-variant hover:text-error transition-colors font-body"
           >
             <FiX size={13} /> Clear all
           </button>
@@ -24,7 +24,7 @@ const NoteFilter = ({ filters, onChange, onReset }) => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {/* Semester */}
         <div>
-          <label className="block text-xs text-slate-500 mb-1.5 font-medium">Semester</label>
+          <label className="block text-xs text-on-surface-variant mb-1.5 font-label uppercase tracking-wider font-bold">Semester</label>
           <select
             value={filters.semester}
             onChange={(e) => onChange({ ...filters, semester: e.target.value })}
@@ -39,7 +39,7 @@ const NoteFilter = ({ filters, onChange, onReset }) => {
 
         {/* Branch */}
         <div>
-          <label className="block text-xs text-slate-500 mb-1.5 font-medium">Branch</label>
+          <label className="block text-xs text-on-surface-variant mb-1.5 font-label uppercase tracking-wider font-bold">Branch</label>
           <select
             value={filters.branch}
             onChange={(e) => onChange({ ...filters, branch: e.target.value })}
@@ -54,7 +54,7 @@ const NoteFilter = ({ filters, onChange, onReset }) => {
 
         {/* Subject */}
         <div>
-          <label className="block text-xs text-slate-500 mb-1.5 font-medium">Subject</label>
+          <label className="block text-xs text-on-surface-variant mb-1.5 font-label uppercase tracking-wider font-bold">Subject</label>
           <input
             type="text"
             placeholder="e.g. Data Structures"
@@ -67,11 +67,11 @@ const NoteFilter = ({ filters, onChange, onReset }) => {
 
       {/* Active filter pills */}
       {hasFilters && (
-        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-white/5">
+        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-outline-variant/10">
           {filters.semester && (
             <span className="badge-semester flex items-center gap-1">
               Sem {filters.semester}
-              <button onClick={() => onChange({ ...filters, semester: '' })} className="ml-1 hover:text-white">
+              <button onClick={() => onChange({ ...filters, semester: '' })} className="ml-1 hover:text-on-surface">
                 <FiX size={10} />
               </button>
             </span>
@@ -79,15 +79,15 @@ const NoteFilter = ({ filters, onChange, onReset }) => {
           {filters.branch && (
             <span className="badge-branch flex items-center gap-1">
               {filters.branch}
-              <button onClick={() => onChange({ ...filters, branch: '' })} className="ml-1 hover:text-white">
+              <button onClick={() => onChange({ ...filters, branch: '' })} className="ml-1 hover:text-on-surface">
                 <FiX size={10} />
               </button>
             </span>
           )}
           {filters.subject && (
-            <span className="badge bg-slate-700/60 text-slate-400 border border-slate-600/40 flex items-center gap-1">
+            <span className="badge bg-surface-container-high text-on-surface-variant border border-outline-variant/20 flex items-center gap-1">
               {filters.subject}
-              <button onClick={() => onChange({ ...filters, subject: '' })} className="ml-1 hover:text-white">
+              <button onClick={() => onChange({ ...filters, subject: '' })} className="ml-1 hover:text-on-surface">
                 <FiX size={10} />
               </button>
             </span>

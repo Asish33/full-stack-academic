@@ -4,7 +4,7 @@ import { FiSearch, FiX } from 'react-icons/fi';
 const SearchBar = ({ value, onChange }) => {
   return (
     <div className="relative">
-      <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+      <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" />
       <input
         type="text"
         placeholder="Search by title, subject, or subject code..."
@@ -16,7 +16,7 @@ const SearchBar = ({ value, onChange }) => {
       {value && (
         <button
           onClick={() => onChange('')}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-200 transition-colors p-1 rounded"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors p-1 rounded"
         >
           <FiX size={15} />
         </button>

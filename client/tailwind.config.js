@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        headline: ['Space Grotesk', 'sans-serif'],
+        body: ['Manrope', 'sans-serif'],
+        label: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -21,13 +24,28 @@ export default {
           700: '#4338ca',
           800: '#3730a3',
           900: '#312e81',
+          DEFAULT: '#75ff9e',
         },
+        'primary-container': '#00e676',
+        'on-primary': '#003918',
+        'on-primary-container': '#00612e',
         surface: {
           900: '#0f172a',
           800: '#1e293b',
           700: '#334155',
           600: '#475569',
+          DEFAULT: '#10131a',
         },
+        background: '#10131a',
+        'surface-container-lowest': '#0b0e14',
+        'surface-container-low': '#191c22',
+        'surface-container': '#1d2026',
+        'surface-container-high': '#272a31',
+        'surface-container-highest': '#32353c',
+        'on-surface': '#e1e2eb',
+        'on-surface-variant': '#bacbb9',
+        'outline-variant': '#3b4a3d',
+        secondary: '#88d899',
       },
       backdropBlur: {
         xs: '2px',
