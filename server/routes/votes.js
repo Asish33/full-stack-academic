@@ -17,7 +17,7 @@ router.post('/:noteId', protect, async (req, res) => {
       return res.status(400).json({ message: 'Invalid vote type' });
     }
 
-    const note = await Note.findById(noteId);
+    const note = await Note.findById(noteId).populate('uploadedBy', 'name email');
     if (!note) return res.status(404).json({ message: 'Note not found' });
 
     const existingVote = await Vote.findOne({ userId, noteId });

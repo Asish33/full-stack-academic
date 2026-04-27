@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <main className="pt-20 bg-background overflow-hidden min-h-screen">
       {/* Hero Section */}
-      <section className="relative px-6 py-20">
+      <section className="relative px-6 pt-10 pb-20">
         {/* Decorative Ambient Glows */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[120px] rounded-full -z-10"></div>
         
@@ -15,7 +15,7 @@ const Home = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high mb-8 text-primary font-label font-bold uppercase tracking-wider text-[10px]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high mb-4 text-primary font-label font-bold uppercase tracking-wider text-[10px]"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -271,42 +271,17 @@ const Home = () => {
 
       {/* Footer */}
       <footer className="bg-surface-container-lowest w-full pt-24 pb-12 border-t border-outline-variant/10">
-        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
-          <div className="col-span-1">
-            <div className="text-3xl font-black tracking-tighter text-on-surface mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary">sync</span>
-              <span className="font-headline">SyncSpace</span>
-            </div>
-            <p className="text-on-surface-variant/60 font-body text-sm tracking-wide leading-relaxed mb-8 max-w-xs">
-              Engineering the future of academic management. A technical luminary for students, by researchers.
-            </p>
+        <div className="max-w-7xl mx-auto px-8 flex flex-col items-center text-center">
+          <div className="text-3xl font-black tracking-tighter text-on-surface mb-4 flex items-center justify-center gap-2">
+            <span className="material-symbols-outlined text-primary">sync</span>
+            <span className="font-headline">SyncSpace</span>
           </div>
-          
-          <div className="grid grid-cols-2 gap-8 md:col-span-2">
-            <div>
-              <h4 className="font-headline text-sm font-bold uppercase tracking-[0.2em] text-on-surface mb-6">Product</h4>
-              <ul className="space-y-4">
-                {['Notes', 'How it works', 'Community', 'Dashboard'].map(link => (
-                  <li key={link}>
-                    <a className="text-on-surface-variant/60 hover:text-primary font-body text-sm tracking-wide transition-colors inline-block" href="#">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-headline text-sm font-bold uppercase tracking-[0.2em] text-on-surface mb-6">Connect</h4>
-              <ul className="space-y-4">
-                {['Twitter', 'LinkedIn', 'GitHub'].map(link => (
-                  <li key={link}>
-                    <a className="text-on-surface-variant/60 hover:text-primary font-body text-sm tracking-wide transition-colors inline-block" href="#">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <p className="text-on-surface-variant/60 font-body text-sm tracking-wide leading-relaxed max-w-sm">
+            Engineering the future of academic management. A technical luminary for students, by researchers.
+          </p>
         </div>
         
-        <div className="max-w-7xl mx-auto px-8 pt-16 mt-16 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="max-w-7xl mx-auto px-8 pt-8 mt-12 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-on-surface-variant/40 text-xs font-body tracking-wide">
             © 2026 SyncSpace Technical Luminary. All rights reserved.
           </p>
